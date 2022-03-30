@@ -53,7 +53,7 @@ class osTicketSession {
             // Remote port specification, as it will make an invalid domain
             list($domain) = explode(':', $_SERVER['HTTP_HOST']);
 
-        session_set_cookie_params($ttl, ROOT_PATH, $domain,
+        session_set_cookie_params($ttl, ROOT_PATH, getenv('OSTICKET_DOMAIN'),
             osTicket::is_https(), true);
 
         if (!defined('SESSION_BACKEND'))
